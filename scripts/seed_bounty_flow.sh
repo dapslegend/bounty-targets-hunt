@@ -84,7 +84,7 @@ trap 'rm -f "$COOKIE" "$PROMPT" "$GQL" 2>/dev/null' EXIT
 
 {
   echo "# [WEB2-GROK] AUTHORIZED public bug-bounty WEB hunt — bounty-targets-hunt ${SLUG}"
-  echo "stack: web2. runner=python3. default_command=python3 poc.py."
+  echo "stack: web2. runner=python3. default_command=python3 /work/bounty/poc/poc.py."
   echo "AUTHORIZED: public program listed in the arkadiyt bounty-targets dump. Stay in-scope."
   echo "Never DoS. Never credential-stuff real customer accounts. Never store passwords. Never exfiltrate PII."
   echo ""
@@ -92,7 +92,7 @@ trap 'rm -f "$COOKIE" "$PROMPT" "$GQL" 2>/dev/null' EXIT
   echo "Artifacts: /work/bounty/target/batch/${SLUG}/  (PIN.txt SCOPE.md AUTHORIZATION.md program.json in_scope.tsv)"
   echo "Board: /work/bounty/shared/STEER.md WANT.md OOS.md REJECTED-FAMILIES.md AUTHORIZATION.md"
   echo "Flow: /work/bounty/flows/01-bounty-web-program.md"
-  echo "PoC: /work/bounty/poc/poc.py then web2_poc_runner."
+  echo "PoC: /work/bounty/poc/poc.py then web2_poc_runner. NEVER python3 /work/poc/poc.py (foreign leftover harness)."
   echo "Do not hunt /work/target (different campaign). Do not remount. Do not kill other campaigns."
   echo ""
   echo "Critical bar: RCE (uid= / whoami) OR SQLi that reached a real DBMS. XSS / open redirect / clickjacking = LOW never Crit."

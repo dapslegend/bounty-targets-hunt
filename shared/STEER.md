@@ -13,3 +13,4 @@
 11. 15 min dead primary → pivot to the next in-scope URL on THIS program, not a peer program.
 12. Artifacts live under `/work/bounty/` (this pack). `/work/target` is a **different campaign** — do not hunt it.
 13. Do not remount / kill other campaigns from inside the agent. Campaign mounts are operator-owned.
+14. Never run `python3 /work/poc/poc.py` or any leftover harness from another campaign. PoC is `/work/bounty/poc/*.py` only. Dump with `playwright_runner` — do not guess SPA params via urllib.
