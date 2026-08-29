@@ -15,3 +15,8 @@
 | A-WRONG-STACK | slither/echidna/medusa/trident on this campaign | wrong stack |
 | A-DOS | flood / lockout / stress | forbidden |
 | A-MEGA-VRP | Google / Meta / Apple / Microsoft VRP as primary | skip — too noisy |
+| A-ENUM-AS-CRIT | user exists vs signup / email-enum claimed High/Crit | Info/Low only |
+| A-PASSWD-ONLY | LFI of `/etc/passwd` without secrets | Low |
+| A-WHOAMI-NOTE | evidence is the word `whoami` without `uid=`/`gid=` | not RCE |
+| A-NO-DBS | sqlmap `No available databases` claimed as DB reach | FAIL |
+| A-HEADER-LEAK | Server/X-Powered-By/version banner | Info |

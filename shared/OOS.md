@@ -11,4 +11,5 @@
 - Storing or exfiltrating real PII off-box
 - Wrong-stack contract fuzzers / chain tools
 - XSS / open redirect as Critical
+- User-enum / missing headers / `/etc/passwd`-only LFI as Critical
 - Other campaigns mounted at `/work/target` (not this pack)
