@@ -430,9 +430,28 @@ def main() -> int:
         archived += 1
     append_catalog(state / "catalog.tsv", candidates[:MAX_ARCHIVE_WRITE])
 
+    already: Set[str] = set()
+    seeded_txt = state / "seeded.txt"
+    if seeded_txt.is_file():
+        for line in seeded_txt.read_text(encoding="utf-8", errors="ignore").splitlines():
+            parts = line.strip().split()
+            if parts:
+                already.add(parts[-1])
+    for qdir in (
+        shared / "queue" / "active",
+        shared / "queue" / "done",
+        shared / "queue" / "rejected",
+    ):
+        if not qdir.is_dir():
+            continue
+        for f in qdir.glob("*.json"):
+            already.add(f.name.split(".f")[0].replace(".json", ""))
+
     huntable: List[dict] = []
     for c in candidates:
         if c.get("popular") or c.get("denied"):
+            continue
+        if c.get("slug") in already:
             continue
         if float(c.get("hunt_score") or 0) < MIN_SCORE:
             continue

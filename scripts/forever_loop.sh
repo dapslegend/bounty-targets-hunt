@@ -62,13 +62,30 @@ pick_pending_batch() {
 import json, os, sys
 from pathlib import Path
 n = int(sys.argv[1])
-pending = Path(os.environ["HUNT_ROOT"]) / "shared/queue/pending"
+root = Path(os.environ["HUNT_ROOT"])
+pending = root / "shared/queue/pending"
 min_score = float(os.environ.get("MIN_SCORE", "20"))
+already = set()
+seeded = root / "shared/state/seeded.txt"
+if seeded.is_file():
+    for line in seeded.read_text(encoding="utf-8", errors="ignore").splitlines():
+        parts = line.strip().split()
+        if parts:
+            already.add(parts[-1])
+for qdir in ("active", "done", "rejected"):
+    d = root / "shared/queue" / qdir
+    if not d.is_dir():
+        continue
+    for f in d.glob("*.json"):
+        already.add(f.name.split(".f")[0].replace(".json", ""))
 cands = []
 for p in pending.glob("*.json"):
     try:
         d = json.loads(p.read_text())
     except Exception:
+        continue
+    slug = d.get("slug") or p.stem
+    if slug in already:
         continue
     hs = float(d.get("hunt_score") or 0)
     if hs < min_score:
