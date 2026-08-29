@@ -1,0 +1,57 @@
+# runtime / dumps
+vendor/bounty-targets-data/
+target/batch/
+target/PIN.txt
+target/BATCH.tsv
+target/inventory.tsv
+target/SCOPE.md
+target/program.json
+
+shared/queue/pending/*.json
+shared/queue/active/*.json
+shared/queue/done/*.json
+shared/queue/rejected/*.json
+shared/queue/archive/*.json
+!shared/queue/archive/.gitkeep
+shared/state/logs/
+shared/state/*.txt
+shared/state/*.json
+shared/state/*.env
+shared/state/catalog.tsv
+shared/findings/**
+shared/hyps/**
+shared/maps/**
+!shared/findings/.gitkeep
+!shared/hyps/.gitkeep
+!shared/maps/.gitkeep
+!shared/queue/pending/.gitkeep
+!shared/queue/active/.gitkeep
+!shared/queue/done/.gitkeep
+!shared/queue/rejected/.gitkeep
+!shared/state/.gitkeep
+!shared/state/logs/.gitkeep
+!target/batch/.gitkeep
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+poc/out/
+poc/cache/
+poc/__pycache__/
+
+# secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*
+git-credentials
+
+# editor
+.DS_Store
+.vscode/
+*.swp
+
+!vendor/.gitkeep

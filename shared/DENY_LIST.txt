@@ -1,0 +1,46 @@
+# Mega / noisy programs — archive only, never seed as primary
+# match against platform:handle (lowercase) or program name needle
+
+hackerone:security
+hackerone:google
+hackerone:google-vrp
+hackerone:googlevrp
+hackerone:meta
+hackerone:facebook
+hackerone:instagram
+hackerone:whatsapp
+hackerone:apple
+hackerone:microsoft
+hackerone:xbox
+hackerone:playstation
+hackerone:sony
+hackerone:amazon
+hackerone:aws
+hackerone:tesla
+hackerone:shopify
+hackerone:twitter
+hackerone:x
+hackerone:uber
+hackerone:airbnb
+hackerone:netflix
+hackerone:paypal
+hackerone:coinbase
+bugcrowd:tesla
+bugcrowd:tesla-mbb
+bugcrowd:mastercard
+intigriti:google
+# generic name needles (substring)
+needle:google vrp
+needle:facebook
+needle:meta bug boun
+needle:apple security
+needle:microsoft
+needle:openai
+needle:cash app
+needle:pinterest
+needle:canva
+needle:lastpass
+needle:intercom
+needle:new relic
+needle:comcast
+needle:xfinity
